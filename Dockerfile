@@ -29,7 +29,8 @@ RUN apt-get -y update && apt-get install -y \
     ros-melodic-rqt-image-view \
     ros-melodic-gmapping \
     ros-melodic-navigation \
-    ros-melodic-interactive-markers
+    ros-melodic-interactive-markers \
+    ros-melodic-turtlebot3-gazebo
 RUN mkdir -p /root/catkin_ws/src
 WORKDIR /root/catkin_ws
 RUN /bin/bash -c "source /opt/ros/melodic/setup.bash"
