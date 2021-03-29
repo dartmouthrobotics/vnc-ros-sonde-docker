@@ -3,9 +3,8 @@
 ## Setup
 1. Install Docker ([installation instructions here](https://docs.docker.com/docker-for-mac/install/))
 2. Clone this repository
-3. Open `ros.env` 
-4. Change `ROS_MASTER_URI=[YOUR ROS MASTER]` to have the url of your ROS master (the format is `ROS_MASTER_URI=http://[IP or HOSTNAME]:11311`)
-5. Run `docker-compose up --build`
+3. Run `docker-compose up --build`
+(`ros.env` contains environment variables for ROS that can be modified before running the command in step 3.)
 
 ## Running RViz
 1. Run `docker-compose exec ros bash` (`docker-compose up` has to be running)
