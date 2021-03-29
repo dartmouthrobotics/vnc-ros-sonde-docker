@@ -4,6 +4,11 @@ RUN apt-get -y update && apt-get install -y \
     iputils-ping \
     net-tools \
     wget \
+    screen \
+    git \
+    nano \
+    vim \
+    htop \
     ros-melodic-joy \
     ros-melodic-teleop-twist-joy \
     ros-melodic-teleop-twist-keyboard \ 
