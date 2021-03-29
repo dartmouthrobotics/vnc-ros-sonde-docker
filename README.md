@@ -1,7 +1,7 @@
-# ROS on Mac
+# ROS on Mac/Windows
 
 ## Setup
-1. Install Docker ([installation instructions here](https://docs.docker.com/docker-for-mac/install/))
+1. Install Docker ([installation instructions for Mac](https://docs.docker.com/docker-for-mac/install/) or [for Windows](https://docs.docker.com/docker-for-windows/install/#system-requirements-for-wsl-2-backend))
 2. Clone this repository
 3. Run `docker-compose up --build`
 (`ros.env` contains environment variables for ROS that can be modified before running the command in step 3.)
