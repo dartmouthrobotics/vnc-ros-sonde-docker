@@ -36,4 +36,5 @@ WORKDIR /root/catkin_ws
 RUN /bin/bash -c "source /opt/ros/melodic/setup.bash"
 RUN echo "source /opt/ros/melodic/setup.sh" >> /root/.bashrc
 RUN echo "source /root/catkin_ws/devel/setup.bash" >> /root/.bashrc
+RUN echo "defshell -bash" >> ~/.screenrc
 WORKDIR /root/catkin_ws/src
