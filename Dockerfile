@@ -1,5 +1,7 @@
 FROM osrf/ros:melodic-desktop-full
 
+RUN curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+
 RUN apt-get -y update && apt-get install -y \
     iputils-ping \
     net-tools \
