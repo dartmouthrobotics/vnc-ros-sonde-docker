@@ -1,5 +1,8 @@
 FROM osrf/ros:melodic-desktop-full
 
+RUN apt-get -y update && apt-get install -y \
+    curl
+
 RUN curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 
 RUN apt-get -y update && apt-get install -y \
