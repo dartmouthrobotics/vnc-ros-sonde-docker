@@ -14,27 +14,30 @@ Before following the next two steps, install Docker ([installation instructions 
 Open a new terminal in the Mac or PowerShell in Windows.
 1. Once the terminal is open, clone this repository with the command `git clone https://github.com/dartmouthrobotics/vnc-ros-sonde-docker.git`
 2. Enter in the cloned repository folder, `cd vnc-ros-sonde-docker`
-3. Run `git submodule update --recursive`
-4. Run `docker-compose up --build`
+3. Run `git submodule update init`
+4. Run `git submodule update --recursive`
+5. Run `docker-compose up --build`
 
 (`ros.env` contains environment variables for ROS that can be modified before running the command in step 3. No need to change it for biologists)
+
 
 ## 2. Data preparation to be convereted
 1. copy one bag file into `bagfile` folder inside `vnc-ros-sonde-docker`.
 2. `vnc-ros-sonde-docker` --> `workspace` --> `src` --> `time_sync_bag_to_csv` --> `param` --> change the information
     * update the `bag_file_name` to be convereted
     * update `sonar` true or false according to the usage of Catabot2, Catabot3 or box
+3. 5. Run `docker-compose up --build` again.
 
-## 3. Running a ROS node for converter
+## 3. Running a ROS node for converter. 
 Once the other terminal shows the following type of messages 
 
     Starting mac-ros_novnc_1 ... done
     Starting mac-ros_ros_1   ... done
 
 open another terminal:
-1. Run `docker-compose exec ros bash` (`docker-compose up` has to be running)
-2. On the same terminal, run `source /opt/ros/melodic/setup.bash`
-3. On the same terminal, run `roslaunch time_sync_bag_to_csv converter.launch` and you should see a number of messages, including `[INFO] data saving! `
+2. Run `docker-compose exec ros bash` (`docker-compose up` has to be running)
+3. On the same terminal, run `source /opt/ros/melodic/setup.bash`
+4. On the same terminal, run `roslaunch time_sync_bag_to_csv converter.launch` and you should see a number of messages, including `[INFO] data saving! `
 
 ## 4. To terminate
 
