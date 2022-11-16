@@ -51,5 +51,5 @@ RUN echo "source /opt/ros/melodic/setup.sh" >> /root/.bashrc
 RUN echo "source /root/catkin_ws/devel/setup.bash" >> /root/.bashrc
 RUN echo "defshell -bash" >> ~/.screenrc
 WORKDIR /root/catkin_ws/src
-RUN /bin/bash -c 'dos2unix *'
+RUN /bin/bash -c 'find /root/catkin_ws/src -type f -exec dos2unix '{}' '+''
 RUN /bin/bash -c '. /opt/ros/melodic/setup.bash; cd /root/catkin_ws; catkin_make'
