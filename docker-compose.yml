@@ -5,6 +5,7 @@ services:
     command: tail -f /dev/null
     volumes: 
       - ./workspace:/root/catkin_ws/
+      - ./bagfile:/root/bagfile/
     environment:
       - DISPLAY=novnc:0.0
     env_file:

@@ -1,0 +1,6 @@
+[submodule "workspace/src/ysi_exo"]
+	path = workspace/src/ysi_exo
+	url = https://github.com/dartmouthrobotics/ysi_exo.git
+[submodule "workspace/src/time_sync_bag_to_csv"]
+	path = workspace/src/time_sync_bag_to_csv
+	url = https://github.com/dartmouthrobotics/time_sync_bag_to_csv.git

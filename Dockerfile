@@ -14,6 +14,8 @@ RUN apt-get -y update && apt-get install -y \
     nano \
     vim \
     htop \
+    dos2unix \
+    python-simplejson \
     ros-melodic-joy \
     ros-melodic-teleop-twist-joy \
     ros-melodic-teleop-twist-keyboard \ 
@@ -35,11 +37,18 @@ RUN apt-get -y update && apt-get install -y \
     ros-melodic-gmapping \
     ros-melodic-navigation \
     ros-melodic-interactive-markers \
-    ros-melodic-turtlebot3-gazebo
+    ros-melodic-turtlebot3-gazebo \
+    ros-melodic-mavros \
+    ros-melodic-mavros-msgs
+
+# git install
+RUN apt-get install git -y
 RUN mkdir -p /root/catkin_ws/src
+RUN mkdir -p /root/bagfile
 WORKDIR /root/catkin_ws
-RUN /bin/bash -c "source /opt/ros/melodic/setup.bash"
+# RUN /bin/bash -c 'git submodule update --recursive'
 RUN echo "source /opt/ros/melodic/setup.sh" >> /root/.bashrc
 RUN echo "source /root/catkin_ws/devel/setup.bash" >> /root/.bashrc
 RUN echo "defshell -bash" >> ~/.screenrc
 WORKDIR /root/catkin_ws/src
+RUN /bin/bash -c '. /opt/ros/melodic/setup.bash; cd /root/catkin_ws; catkin_make'
