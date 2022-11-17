@@ -1,4 +1,5 @@
 FROM osrf/ros:melodic-desktop-full
+USER root
 
 RUN apt-get -y update && apt-get install -y \
     curl
@@ -18,14 +19,14 @@ RUN apt-get -y update && apt-get install -y \
     python-simplejson \
     ros-melodic-joy \
     ros-melodic-teleop-twist-joy \
-    ros-melodic-teleop-twist-keyboard \ 
+    ros-melodic-teleop-twist-keyboard \
     ros-melodic-laser-proc \
     ros-melodic-rgbd-launch \
     ros-melodic-depthimage-to-laserscan \
-    ros-melodic-rosserial-arduino \ 
+    ros-melodic-rosserial-arduino \
     ros-melodic-rosserial-python \
-    ros-melodic-rosserial-server \ 
-    ros-melodic-rosserial-client \ 
+    ros-melodic-rosserial-server \
+    ros-melodic-rosserial-client \
     ros-melodic-rosserial-msgs \
     ros-melodic-amcl \
     ros-melodic-map-server \
@@ -52,4 +53,4 @@ RUN echo "source /root/catkin_ws/devel/setup.bash" >> /root/.bashrc
 RUN echo "defshell -bash" >> ~/.screenrc
 WORKDIR /root/catkin_ws/src
 RUN /bin/bash -c 'find /root/catkin_ws/src -type f -exec dos2unix '{}' '+''
-RUN /bin/bash -c '. /opt/ros/melodic/setup.bash; cd /root/catkin_ws; catkin_make'
+RUN /bin/bash -c 'source /opt/ros/melodic/setup.bash; cd /root/catkin_ws; catkin_make'
