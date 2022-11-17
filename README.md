@@ -14,7 +14,7 @@ Before following the next two steps, install Docker ([installation instructions 
 Open a new terminal in the Mac or PowerShell in Windows.
 1. Once the terminal is open, clone this repository with the command `git clone https://github.com/dartmouthrobotics/vnc-ros-sonde-docker.git`
 2. Enter in the cloned repository folder, `cd vnc-ros-sonde-docker`
-3. Run `git submodule update init`
+3. Run `git submodule init`
 4. Run `git submodule update --recursive`
 5. Run `docker-compose build`
 
