@@ -41,7 +41,7 @@ open another terminal:
     * update the `bag_file_name` to be convereted
     * update `sonar` true or false according to the usage of Catabot2, Catabot3 or box
 
-3. On the same terminal, run `roslaunch time_sync_bag_to_csv converter.launch` and you should see a number of messages, including `[INFO] data saving! `
+3. On the same terminal, run `roslaunch time_sync_bag_to_csv harness.launch` and you should see a number of messages, including `[INFO] data saving! `
 
 ## 4. To terminate
 
