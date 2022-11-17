@@ -14,8 +14,8 @@ Before following the next two steps, install Docker ([installation instructions 
 Open a new terminal in the Mac or PowerShell in Windows.
 1. Once the terminal is open, clone this repository with the command `git clone https://github.com/dartmouthrobotics/vnc-ros-sonde-docker.git`
 2. Enter in the cloned repository folder, `cd vnc-ros-sonde-docker`
-3. Run `git submodule init`
-4. Run `git submodule update --recursive`
+3. Run `git submodule init` (only first time)
+4. Run `git submodule update --recursive` (only first time)
 5. Run `docker-compose build`
 
 (`ros.env` contains environment variables for ROS that can be modified before running the command in step 3. No need to change it for biologists)
@@ -30,7 +30,7 @@ open another terminal:
 1. Run `docker-compose up`
 2. Run `docker-compose exec ros bash` (`docker-compose up` has to be running)
 3. On the same terminal, run `source /opt/ros/melodic/setup.bash`
-4. Run `find /root/catkin_ws/src -type f -exec dos2unix '{}' '+'`
+4. Run `find /root/catkin_ws/src -type f -exec dos2unix '{}' '+'` (only first time)
 5. `cd /root/catkin_ws` and `catkin_make`
 6. `source /devel/setup.bash`
 
