@@ -5,6 +5,24 @@ This repo contains docker module that automatically change `.bag` data into `.cs
 * Mingi Jeong
 * Alberto Quattrini Li
 
+![structure](images/vnc-ros-sonde-docker.png)
+
+```
+.
+├── bagfile
+├── docker-compose.yml
+├── Dockerfile
+├── images
+├── LICENSE
+├── novnc.env
+├── ros.env
+└── workspace
+    └── src
+        ├── time_sync_bag_to_csv
+        └── ysi_exo
+
+```
+
 ## Prerequisite
 
 Before following the next two steps, install Docker ([installation instructions for Mac](https://docs.docker.com/docker-for-mac/install/) or [for Windows](https://docs.docker.com/docker-for-windows/install/#system-requirements-for-wsl-2-backend)).
@@ -34,6 +52,8 @@ open another terminal:
 4. Run `find /root/catkin_ws/src -type f -exec dos2unix '{}' '+'` (only first time)
 5. `cd /root/catkin_ws` and `catkin_make`
 6. `source /devel/setup.bash`
+7. `cd /root/catkin_ws/src/time_sync_bag_to_csv/nodes`
+8. `chmod +x convert_harness` and `chmod +x csv_converter`
 
 
 ## 3. Data preparation and conversion
@@ -42,7 +62,7 @@ open another terminal:
     * update the `bag_file_name` to be convereted
     * update `sonar` true or false according to the usage of Catabot2, Catabot3 or box
 
-3. On the same terminal, run `roslaunch time_sync_bag_to_csv harness.launch` and you should see a number of messages, including `[INFO] data saving! `
+3. On the same terminal, run `roslaunch time_sync_bag_to_csv harness.launch` and you should see a number of messages, including `[INFO] data saving! file location`. As long as the time is ticking, it is going on. The conversion takes the same amount of the deployment.
 
 ## 4. To terminate
 
@@ -53,12 +73,22 @@ open another terminal:
     Stopping mac-ros_ros_1   ... done
     Stopping mac-ros_novnc_1 ... done
 
-3. Run `docker-compose down` (Make sure you are inside `vnc-ros-sonde-docker`)
+3. Run `docker-compose down` (Make sure you are inside `vnc-ros-sonde-docker` before doing this)
 
 At this point, both terminals can be closed if you wish.
+
+### 5. from 2nd time usage
+1. copy bag file to `bagfile` folder
+2. `docker-compose up` as per step 2
+3. `docker-compose exec ros bash` as per step 2
+4. source workspace bash as per step 2.
+5. roslaunch as per step 3.
 
 ## Editing your workspace (not for limno)
 The workspace folder that gets created on your machine by `docker-compose` is where you can write and edit your packages. It maps to `~/catkin_ws` on the Docker container. However, if you want to run `catkin_make`, do so by creating a bash via `docker-compose exec ros bash` and running `catkin_make` in `/catkin_ws`.
 
-## Installing other packages (no need for limno)
+## Installing other packages (not for limno)
 Edit the `Dockerfile` line that installs packages and rebuild the container using `docker-compose build`.
+
+## TODO
+1. multiple bags
