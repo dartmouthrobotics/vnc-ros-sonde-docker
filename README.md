@@ -26,8 +26,9 @@ Once the other terminal shows the following type of messages
     Starting mac-ros_ros_1   ... done
 
 ## 2. Entering  the container
-open another terminal:
+On the same terminal you built,
 1. Run `docker-compose up`
+open another terminal:
 2. Run `docker-compose exec ros bash` (`docker-compose up` has to be running)
 3. On the same terminal, run `source /opt/ros/melodic/setup.bash`
 
