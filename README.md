@@ -77,7 +77,7 @@ open another terminal:
 
 At this point, both terminals can be closed if you wish.
 
-### 5. from 2nd time usage
+## 5. from 2nd time usage
 1. copy bag file to `bagfile` folder
 2. `docker-compose up` as per step 2
 3. `docker-compose exec ros bash` as per step 2
